@@ -43,8 +43,7 @@ def replaceNA(file_name, key_names):
 
 def convert_to_list(file_name, key_names):
     for key in key_names:
-        if pandas.isnull(key): 
-            file_name[key] = []
-        else:
-            file_name[key].split(',')
+        # REPLACES NAN WITH BLANK STRING. 
+         file_name[key] = file_name[key].fillna('').astype(str).str.split(', ')
+
         
